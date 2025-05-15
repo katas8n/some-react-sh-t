@@ -14,15 +14,14 @@ interface PropTypes {
 export const Input = ({ name, value, id, type, placeholder, className, onInputHandler }: PropTypes) => {
 
     // const [inputValue, setInputValue] = useState<string>(""); 
-    console.log("INPUT HAS BEEN RENDERED!");
     
-    const inputRef = useRef<string>(""); 
+    // const inputRef = useRef<string>(""); 
 
-    const onChangeHandler = () => {
-        console.log(inputRef.current.value);
+    // const onChangeHandler = () => {
+    //     console.log(inputRef.current.value);
         
-        // setInputValue(inputValue)
-    }
+    //     // setInputValue(inputValue)
+    // }
 
     // const onChangeHandler = (inputValue: string, name: string) => {
     //     setInputValue(inputValue)
@@ -41,9 +40,9 @@ export const Input = ({ name, value, id, type, placeholder, className, onInputHa
                 className={`${className} border-b-1 border-b-fuchsia-200 border-solid mt-4`}
                 placeholder={placeholder}
                 type={type} 
-                onChange={(e) => onChangeHandler(e.target.value, name)}
+                onChange={(e) => onInputHandler(name, e.target.value)}
                 // value={inputValue}
-                ref={inputRef}
+                // ref={inputRef}
             /> 
         </fieldset>
      );

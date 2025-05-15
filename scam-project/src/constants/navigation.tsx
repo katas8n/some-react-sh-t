@@ -16,7 +16,7 @@ export const navigation: INavigation[] = [
         isActive: false
     },
     {
-        url: "/wallet",
+        url: "/wallets",
         title: "Wallet",
         isActive: false
     },

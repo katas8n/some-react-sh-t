@@ -22,8 +22,8 @@ export const inputs: FormInput[] = [
         type: "date"
     },
     {
-        id: "ownerName",
-        name: "ownerName",
+        id: "owner",
+        name: "owner",
         placeholder: "Owner Name",
         type: "text"
     },

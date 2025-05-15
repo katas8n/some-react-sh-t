@@ -1,10 +1,11 @@
 interface PropTypes {
     children: string;
     className: string;
+    onClickHandler: () => void
 }
 
-export const Button = ({ children, className }: PropTypes) => {
+export const Button = ({ children, className, onClickHandler }: PropTypes) => {
     return ( 
-        <button className={className}>{children}</button>
+        <button onClick={onClickHandler} className={className}>{children}</button>
      );
 }

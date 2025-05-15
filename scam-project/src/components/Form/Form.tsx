@@ -7,7 +7,7 @@ interface PropTypes {
 
 export const Form = ({ children, className }: PropTypes) => {
     return ( 
-        <form className={className}>
+        <form className={className} onSubmit={(e) => { e.preventDefault(); }}>
             {children}
         </form>
      );

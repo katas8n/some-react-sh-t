@@ -14,8 +14,6 @@ interface ICard {
 }
 
 export const Home = () => {
-    console.log("Home has been rendered");
-
     const [formState, setFormState] = useState<ICard>(
         {
             cardNumber: "",
@@ -26,10 +24,27 @@ export const Home = () => {
     )
 
     const onInputHandler = (key: string, value: string) => {
-        console.log("KEY", key);
-        console.log("VALUE", value);
-        
-        // setFormState(prevState => {...prevState, [key]: value})
+        setFormState((prevForm) => {
+            return {
+                ...prevForm,
+                [key]: value
+            }
+        })
+        // console.log("[LOG_STATE]",formState);
+    }
+
+    const onSendNewWallet = async () => {        
+        const resp = await fetch("http://localhost:3000/wallets", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formState),
+        })
+
+        const wallets = await resp.json(); 
+
+        console.log("[wallets]",wallets);
     }
     
     return ( 
@@ -42,7 +57,7 @@ export const Home = () => {
                 }
 
                 <div className="flex mt-9 justify-end">
-                    <Button className="border-2 rounded-md px-5">Send</Button>
+                    <Button onClickHandler={onSendNewWallet} className="border-2 rounded-md px-5">Send</Button>
                 </div>
             </Form>
         </section>
